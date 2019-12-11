@@ -143,27 +143,27 @@ angular.module('netStatsApp.filters', [])
 	var numberFilter = filter('number');
 	return function(price) {
 		if(typeof price === 'undefined')
-			return "0 wei";
+			return "0 OST";
 
 		if(price.length < 4)
-			return numberFilter(price) + " wei";
+			return numberFilter(price) + " aOST";
 
 		if(price.length < 7)
-			return numberFilter(price/1000) + " kwei";
+			return numberFilter(price/1000) + " fOST";
 
 		if(price.length < 10)
-			return numberFilter(price/1000000) + " mwei";
+			return numberFilter(price/1000000) + " pOST";
 
 		if(price.length < 13)
-			return numberFilter(price/1000000000) + " gwei";
+			return numberFilter(price/1000000000) + " nOST";
 
 		if(price.length < 16)
-			return numberFilter(price/1000000000000) + " szabo";
+			return numberFilter(price/1000000000000) + " µOST";
 
 		if(price.length < 19)
-			return numberFilter(price.substr(0, price.length - 15)) + " finney";
+			return numberFilter(price.substr(0, price.length - 15)) + " mOST";
 
-		return numberFilter(price.substr(0, price.length - 18)) + " ether";
+		return numberFilter(price.substr(0, price.length - 18)) + " OST";
 	}
 }])
 .filter('gasFilter', function() {
